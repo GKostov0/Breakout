@@ -2,10 +2,16 @@
 
 #include <iostream>
 
+unsigned int vertexShader;
+unsigned int fragmentShader;
+unsigned int geometryShader;
+
+unsigned int program;
+
+const char* geometrySource;
+
 void CreateVertexShader(const char* source)
 {
-	unsigned int vertexShader;
-
 	vertexShader = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vertexShader, 1, &source, NULL);
 	glCompileShader(vertexShader);
@@ -23,8 +29,6 @@ void CreateVertexShader(const char* source)
 
 void CreateFragmentShader(const char* source)
 {
-	unsigned int fragmentShader;
-
 	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(fragmentShader, 1, &source, NULL);
 	glCompileShader(fragmentShader);
@@ -43,8 +47,7 @@ void CreateFragmentShader(const char* source)
 
 void CreateGeometryShader(const char* source)
 {
-	unsigned int geometryShader;
-
+	geometrySource = source;
 	geometryShader = glCreateShader(GL_GEOMETRY_SHADER);
 	glShaderSource(geometryShader, 1, &source, NULL);
 	glCompileShader(geometryShader);
@@ -58,6 +61,35 @@ void CreateGeometryShader(const char* source)
 	{
 		glGetShaderInfoLog(geometryShader, 512, NULL, log);
 		std::cout << "[Error]: Failed to compile [--GEOMETRY--] shader. Reason: " << log << std::endl;
+	}
+}
+
+void CreateProgram()
+{
+	program = glCreateProgram();
+	glAttachShader(program, vertexShader);
+	glAttachShader(program, fragmentShader);
+	if (geometrySource != NULL)
+	{
+		glAttachShader(program, geometryShader);
+	}
+	glLinkProgram(program);
+
+	int success;
+	char log[512];
+
+	glGetProgramiv(program, GL_LINK_STATUS, &success);
+	if (!success)
+	{
+		glGetProgramInfoLog(program, 512, NULL, log);
+		std::cout << "[Error]: Failed to compile [--PROGRAM--]. Reason: " << log << std::endl;
+	}
+
+	glDeleteShader(vertexShader);
+	glDeleteShader(fragmentShader);
+	if (geometryShader != NULL)
+	{
+		glDeleteShader(geometryShader);
 	}
 }
 

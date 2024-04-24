@@ -29,7 +29,7 @@ project "Breakout"
 
     includedirs 
     {
-        "src",
+        "%{prj.name}/src",
         "%{IncludeDir.Glad}"
     }
 
@@ -39,8 +39,8 @@ project "Breakout"
 
     files
 	{
-		"src/**.h",
-		"src/**.cpp"
+		"**.h",
+		"**.cpp"
 	}
 
     filter "configurations:Debug"

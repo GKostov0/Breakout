@@ -1,19 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Core">
-      <UniqueIdentifier>{2EB4837C-1AEB-840D-C3D7-6A10AFED000F}</UniqueIdentifier>
+    <Filter Include="Glad">
+      <UniqueIdentifier>{BDD6857C-A90D-870D-52FA-6C103E10030F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Shader">
-      <UniqueIdentifier>{14A4C393-8059-3C89-094E-36607502338D}</UniqueIdentifier>
+    <Filter Include="Glad\include">
+      <UniqueIdentifier>{306B6832-1CCE-F7D6-C553-308DB195C359}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Glad\include\KHR">
+      <UniqueIdentifier>{A49125BA-908A-440C-B9BC-2991A5142418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Glad\include\glad">
+      <UniqueIdentifier>{37BCE7FE-A3D2-E594-EC49-71B6589FB61C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Core">
+      <UniqueIdentifier>{A5D31CCF-91A0-77DA-BAB9-6582A6E5AC68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Core\Shader">
+      <UniqueIdentifier>{ABD79DAB-1763-0B70-2074-8E648C7E6770}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Core\Shader\Shader.h">
-      <Filter>Core\Shader</Filter>
+    <ClInclude Include="..\Glad\include\KHR\khrplatform.h">
+      <Filter>Glad\include\KHR</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Glad\include\glad\glad.h">
+      <Filter>Glad\include\glad</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Shader\Shader.h">
+      <Filter>src\Core\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\stb_image.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

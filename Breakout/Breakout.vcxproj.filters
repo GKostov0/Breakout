@@ -36,10 +36,15 @@
     <ClInclude Include="src\stb_image.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\ResourcesProvider\ResourcesProvider.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\stb_image.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\shaders\vertex.vs" />
   </ItemGroup>
 </Project>

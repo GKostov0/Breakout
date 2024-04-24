@@ -1,4 +1,4 @@
-#version 330
+#version 330 core
 
 // vec2 positions, vec2 texCoords
 layout (location = 0) in vec4 vertex;

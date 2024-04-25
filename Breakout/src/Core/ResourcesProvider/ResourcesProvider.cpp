@@ -5,8 +5,13 @@
 #include <sstream>
 #include <fstream>
 
-
 std::map<std::string, Shader> ResourcesProvider::Shaders;
+
+Shader ResourcesProvider::LoadShader(const char* vShaderPath, const char* fShaderPath, const char* gShaderPath, std::string id)
+{
+	Shaders[id] = loadShadersFromFile(vShaderPath, fShaderPath, gShaderPath);
+	return Shaders[id];
+}
 
 Shader ResourcesProvider::loadShadersFromFile(const char* vShaderPath, const char* fShaderPath, const char* gShaderPath)
 {

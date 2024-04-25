@@ -6,8 +6,10 @@ workspace "Breakout"
     platforms { "x64" }
 
     IncludeDir = {}
+    IncludeDir["GLFW"] = "GLFW/include"
     IncludeDir["Glad"] = "Glad/include"
 
+    include "GLFW"
     include "Glad"
 
 project "Breakout"
@@ -20,6 +22,7 @@ project "Breakout"
 
     links 
     {
+        "GLFW",
         "Glad",
         "opengl32.lib"
     }
@@ -30,6 +33,7 @@ project "Breakout"
     includedirs 
     {
         "%{prj.name}/src",
+        "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}"
     }
 

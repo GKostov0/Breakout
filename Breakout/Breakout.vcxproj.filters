@@ -43,8 +43,11 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\stb_image.cpp" />
+    <ClCompile Include="src\Core\Shader\Shader.cpp" />
+    <ClCompile Include="src\Core\ResourcesProvider\ResourcesProvider.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\shaders\vertex.vs" />
+    <None Include="src\shaders\fragment.frag" />
   </ItemGroup>
 </Project>

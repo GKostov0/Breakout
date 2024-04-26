@@ -12,6 +12,8 @@ public:
 
 	static Shader LoadShader(const char* vShaderPath, const char* fShaderPath, const char* gShaderPath, std::string id);
 
+	static void Clear();
+
 private:
 	ResourcesProvider() { }
 

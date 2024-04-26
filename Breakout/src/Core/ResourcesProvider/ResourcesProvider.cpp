@@ -13,6 +13,14 @@ Shader ResourcesProvider::LoadShader(const char* vShaderPath, const char* fShade
 	return Shaders[id];
 }
 
+void ResourcesProvider::Clear()
+{
+	for (auto i : Shaders)
+	{
+		glDeleteProgram(i.second.ID);
+	}
+}
+
 Shader ResourcesProvider::loadShadersFromFile(const char* vShaderPath, const char* fShaderPath, const char* gShaderPath)
 {
 	std::string vertexCode;

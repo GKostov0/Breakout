@@ -43,8 +43,13 @@ project "Breakout"
 
     files
 	{
-		"**.h",
-		"**.cpp"
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp",
+	}
+
+    postbuildcommands
+	{
+		--("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Breakout")
 	}
 
     filter "configurations:Debug"

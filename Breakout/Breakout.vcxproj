@@ -90,10 +90,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\GLFW\include\GLFW\glfw3.h" />
-    <ClInclude Include="..\GLFW\include\GLFW\glfw3native.h" />
-    <ClInclude Include="..\Glad\include\KHR\khrplatform.h" />
-    <ClInclude Include="..\Glad\include\glad\glad.h" />
     <ClInclude Include="src\Core\ResourcesProvider\ResourcesProvider.h" />
     <ClInclude Include="src\Core\Shader\Shader.h" />
     <ClInclude Include="src\stb_image.h" />

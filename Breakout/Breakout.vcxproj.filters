@@ -1,78 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="..">
-      <UniqueIdentifier>{61705900-4DFC-870B-B6AA-880BA255880B}</UniqueIdentifier>
+    <Filter Include="Core">
+      <UniqueIdentifier>{2EB4837C-1AEB-840D-C3D7-6A10AFED000F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="..\GLFW">
-      <UniqueIdentifier>{40907E47-AC6F-FDE2-B587-88B921E66344}</UniqueIdentifier>
+    <Filter Include="Core\ResourcesProvider">
+      <UniqueIdentifier>{43CB647A-2FC5-8DCC-1832-24DD04CBF338}</UniqueIdentifier>
     </Filter>
-    <Filter Include="..\GLFW\include">
-      <UniqueIdentifier>{B3F7B7FE-1F83-25C3-2894-A8B7949E81C3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="..\GLFW\include\GLFW">
-      <UniqueIdentifier>{D27A5098-BE09-DA61-6728-EE5C5396EA07}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="..\Glad">
-      <UniqueIdentifier>{E81B7F47-54FB-FDE2-5D13-89B9C9716444}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="..\Glad\include">
-      <UniqueIdentifier>{5BABBD01-C736-2BC6-D047-AEBA3C5287C6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="..\Glad\include\KHR">
-      <UniqueIdentifier>{4FEF24B5-BB50-02C3-44BE-4875B01E3982}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="..\Glad\include\glad">
-      <UniqueIdentifier>{42CFD259-2E5E-5C23-D77C-701EC3EA6CC9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src">
-      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Core">
-      <UniqueIdentifier>{A5D31CCF-91A0-77DA-BAB9-6582A6E5AC68}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Core\ResourcesProvider">
-      <UniqueIdentifier>{7A322511-6642-D1E1-CFFB-3500BB2AC07A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Core\Shader">
-      <UniqueIdentifier>{ABD79DAB-1763-0B70-2074-8E648C7E6770}</UniqueIdentifier>
+    <Filter Include="Core\Shader">
+      <UniqueIdentifier>{14A4C393-8059-3C89-094E-36607502338D}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\GLFW\include\GLFW\glfw3.h">
-      <Filter>..\GLFW\include\GLFW</Filter>
-    </ClInclude>
-    <ClInclude Include="..\GLFW\include\GLFW\glfw3native.h">
-      <Filter>..\GLFW\include\GLFW</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Glad\include\KHR\khrplatform.h">
-      <Filter>..\Glad\include\KHR</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Glad\include\glad\glad.h">
-      <Filter>..\Glad\include\glad</Filter>
-    </ClInclude>
     <ClInclude Include="src\Core\ResourcesProvider\ResourcesProvider.h">
-      <Filter>src\Core\ResourcesProvider</Filter>
+      <Filter>Core\ResourcesProvider</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Shader\Shader.h">
-      <Filter>src\Core\Shader</Filter>
+      <Filter>Core\Shader</Filter>
     </ClInclude>
-    <ClInclude Include="src\stb_image.h">
-      <Filter>src</Filter>
-    </ClInclude>
+    <ClInclude Include="src\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\ResourcesProvider\ResourcesProvider.cpp">
-      <Filter>src\Core\ResourcesProvider</Filter>
+      <Filter>Core\ResourcesProvider</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Shader\Shader.cpp">
-      <Filter>src\Core\Shader</Filter>
+      <Filter>Core\Shader</Filter>
     </ClCompile>
-    <ClCompile Include="src\main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\stb_image.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\stb_image.cpp" />
   </ItemGroup>
 </Project>

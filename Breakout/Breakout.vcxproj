@@ -58,7 +58,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\GLFW\include;..\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\GLFW\include;..\Glad\include;..\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
@@ -74,7 +74,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\GLFW\include;..\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\GLFW\include;..\Glad\include;..\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -92,11 +92,15 @@
   <ItemGroup>
     <ClInclude Include="src\Core\ResourcesProvider\ResourcesProvider.h" />
     <ClInclude Include="src\Core\Shader\Shader.h" />
+    <ClInclude Include="src\Core\SpriteRenderer\SpriteRenderer.h" />
+    <ClInclude Include="src\Core\Texture\Texture.h" />
     <ClInclude Include="src\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\ResourcesProvider\ResourcesProvider.cpp" />
     <ClCompile Include="src\Core\Shader\Shader.cpp" />
+    <ClCompile Include="src\Core\SpriteRenderer\SpriteRenderer.cpp" />
+    <ClCompile Include="src\Core\Texture\Texture.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\stb_image.cpp" />
   </ItemGroup>

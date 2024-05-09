@@ -1,5 +1,11 @@
 #include "Shader.h"
 
+Shader& Shader::Use()
+{
+	glUseProgram(this->ID);
+	return *this;
+}
+
 void Shader::Compile(const char* vertex, const char* fragment, const char* geometry)
 {
 	unsigned int v, f, g;
@@ -67,4 +73,33 @@ void Shader::CheckCompileStatus(unsigned int object, ShaderCompileType type)
 			std::cout << "[Error]: Failed to compile [--" << type << "--].Reason: " << log << std::endl;
 		}
 	}
+}
+
+void Shader::SetMatrix4(const char* name, const glm::mat4& matrix, bool useShader)
+{
+	if (useShader)
+	{
+		this->Use();
+	}
+	glUniformMatrix4fv(glGetUniformLocation(this->ID, name), 1, false, glm::value_ptr(matrix));
+}
+
+void Shader::SetVector3f(const char* name, float x, float y, float z, bool useShader)
+{
+	if (useShader)
+	{
+		this->Use();
+	}
+
+	glUniform3f(glGetUniformLocation(this->ID, name), x, y, z);
+}
+
+void Shader::SetVector3f(const char* name, glm::vec3& value, bool useShader)
+{
+	if (useShader)
+	{
+		this->Use();
+	}
+
+	glUniform3f(glGetUniformLocation(this->ID, name), value.x, value.y, value.z);
 }

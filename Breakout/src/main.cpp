@@ -44,7 +44,4 @@ int main()
 
 	glfwTerminate();
 	return 0;
-
-	std::cin.get();
-	return 0;
 }

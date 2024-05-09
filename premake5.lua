@@ -8,6 +8,7 @@ workspace "Breakout"
     IncludeDir = {}
     IncludeDir["GLFW"] = "GLFW/include"
     IncludeDir["Glad"] = "Glad/include"
+    IncludeDir["glm"] = "glm"
 
     include "GLFW"
     include "Glad"
@@ -34,7 +35,8 @@ project "Breakout"
     {
         "%{prj.name}/src",
         "%{IncludeDir.GLFW}",
-        "%{IncludeDir.Glad}"
+        "%{IncludeDir.Glad}",
+        "%{IncludeDir.glm}"
     }
 
     filter { "platforms:x64" }
@@ -45,6 +47,8 @@ project "Breakout"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+        "%{prj.name}/glm/glm/**.hpp",
+		"%{prj.name}/glm/glm/**.inl"
 	}
 
     postbuildcommands

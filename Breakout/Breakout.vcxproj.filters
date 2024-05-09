@@ -10,6 +10,9 @@
     <Filter Include="Core\Shader">
       <UniqueIdentifier>{14A4C393-8059-3C89-094E-36607502338D}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\SpriteRenderer">
+      <UniqueIdentifier>{2BCAD034-972B-AE42-2099-F4F48CF9E401}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Core\ResourcesProvider\ResourcesProvider.h">
@@ -18,7 +21,11 @@
     <ClInclude Include="src\Core\Shader\Shader.h">
       <Filter>Core\Shader</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\SpriteRenderer\SpriteRenderer.h">
+      <Filter>Core\SpriteRenderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\stb_image.h" />
+    <ClInclude Include="src\Core\Texture\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\ResourcesProvider\ResourcesProvider.cpp">
@@ -29,5 +36,7 @@
     </ClCompile>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\stb_image.cpp" />
+    <ClCompile Include="src\Core\Texture\Texture.cpp" />
+    <ClCompile Include="src\Core\SpriteRenderer\SpriteRenderer.cpp" />
   </ItemGroup>
 </Project>

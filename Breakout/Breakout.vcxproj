@@ -90,6 +90,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Core\GameObject\GameObject.h" />
     <ClInclude Include="src\Core\ResourcesProvider\ResourcesProvider.h" />
     <ClInclude Include="src\Core\Shader\Shader.h" />
     <ClInclude Include="src\Core\SpriteRenderer\SpriteRenderer.h" />
@@ -97,6 +98,7 @@
     <ClInclude Include="src\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\GameObject\GameObject.cpp" />
     <ClCompile Include="src\Core\ResourcesProvider\ResourcesProvider.cpp" />
     <ClCompile Include="src\Core\Shader\Shader.cpp" />
     <ClCompile Include="src\Core\SpriteRenderer\SpriteRenderer.cpp" />

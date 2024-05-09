@@ -26,6 +26,7 @@
     </ClInclude>
     <ClInclude Include="src\stb_image.h" />
     <ClInclude Include="src\Core\Texture\Texture.h" />
+    <ClInclude Include="src\Core\GameObject\GameObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\ResourcesProvider\ResourcesProvider.cpp">
@@ -38,5 +39,6 @@
     <ClCompile Include="src\stb_image.cpp" />
     <ClCompile Include="src\Core\Texture\Texture.cpp" />
     <ClCompile Include="src\Core\SpriteRenderer\SpriteRenderer.cpp" />
+    <ClCompile Include="src\Core\GameObject\GameObject.cpp" />
   </ItemGroup>
 </Project>

@@ -103,3 +103,13 @@ void Shader::SetVector3f(const char* name, glm::vec3& value, bool useShader)
 
 	glUniform3f(glGetUniformLocation(this->ID, name), value.x, value.y, value.z);
 }
+
+void Shader::SetInteger(const char* name, int value, bool useShader)
+{
+	if (useShader)
+	{
+		this->Use();
+	}
+
+	glUniform1i(glGetUniformLocation(this->ID, name), value);
+}

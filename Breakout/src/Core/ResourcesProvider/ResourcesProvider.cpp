@@ -1,11 +1,13 @@
 #include "ResourcesProvider.h"
-#include "stb_image.h"
 
 #include <iostream>
 #include <sstream>
 #include <fstream>
 
+#include "stb_image.h"
+
 std::map<std::string, Shader> ResourcesProvider::Shaders;
+std::map<std::string, Texture2D> ResourcesProvider::Textures;
 
 Shader ResourcesProvider::LoadShader(const char* vShaderPath, const char* fShaderPath, const char* gShaderPath, std::string id)
 {
@@ -66,4 +68,38 @@ Shader ResourcesProvider::loadShadersFromFile(const char* vShaderPath, const cha
 	result.Compile(vShaderCode, fShaderCode, gShaderPath != nullptr ? gShaderCode : nullptr);
 
 	return result;
+}
+
+Texture2D ResourcesProvider::GetTexture(std::string name)
+{
+	return Textures[name];
+}
+
+Shader ResourcesProvider::GetShader(std::string name)
+{
+	return Shaders[name];
+}
+
+Texture2D ResourcesProvider::LoadTexture(const char* filePath, bool alpha, std::string name)
+{
+	Textures[name] = loadTextureFromFile(filePath, alpha);
+	return Textures[name];
+}
+
+Texture2D ResourcesProvider::loadTextureFromFile(const char* filePath, bool alpha)
+{
+	Texture2D texture;
+	if (alpha)
+	{
+		texture.internal_format = GL_RGBA;
+		texture.image_format = GL_RGBA;
+	}
+
+	int width, height, nrChannels;
+	unsigned char* data = stbi_load(filePath, &width, &height, &nrChannels, 0);
+
+	texture.Generate(width, height, data);
+	stbi_image_free(data);
+
+	return texture;
 }

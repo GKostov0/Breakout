@@ -27,6 +27,8 @@
     <ClInclude Include="src\stb_image.h" />
     <ClInclude Include="src\Core\Texture\Texture.h" />
     <ClInclude Include="src\Core\GameObject\GameObject.h" />
+    <ClInclude Include="src\Core\GameLevel\GameLevel.h" />
+    <ClInclude Include="src\Game.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\ResourcesProvider\ResourcesProvider.cpp">
@@ -40,5 +42,12 @@
     <ClCompile Include="src\Core\Texture\Texture.cpp" />
     <ClCompile Include="src\Core\SpriteRenderer\SpriteRenderer.cpp" />
     <ClCompile Include="src\Core\GameObject\GameObject.cpp" />
+    <ClCompile Include="src\Core\GameLevel\GameLevel.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\Sprites\block.png" />
+    <Image Include="src\Sprites\block_solid.png" />
+    <Image Include="src\Sprites\background.jpg" />
   </ItemGroup>
 </Project>

@@ -20,6 +20,7 @@ public:
 	void SetMatrix4(const char* name, const glm::mat4& matrix, bool useShader = false);
 	void SetVector3f(const char* name, float x, float y, float z, bool useShader = false);
 	void SetVector3f(const char* name, glm::vec3& value, bool useShader = false);
+	void SetInteger(const char* name, int value, bool useShader = false);
 
 private:
 	enum ShaderCompileType

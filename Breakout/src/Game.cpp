@@ -2,13 +2,17 @@
 
 #include "Core\ResourcesProvider\ResourcesProvider.h"
 #include "Core\SpriteRenderer\SpriteRenderer.h"
-#include "Core\GameObject\GameObject.h"
+#include "Game\Ball.h"
 
 SpriteRenderer* renderer;
 GameObject* player;
+Ball* ball;
+
+const glm::vec2 INITAIL_BALL_VELOCITY(100.0f, -350.0f);
+const float BALL_RADIUS = 12.5f;
 
 Game::Game(unsigned int width, unsigned int height)
-	: state(GAME_ACTIVE), keys(), width(width), height(height)
+	: state(GAME_ACTIVE), keys(), width(width), height(height), level(0)
 {
 
 }
@@ -51,12 +55,16 @@ void Game::Init()
 	this->level = 0;
 
 	glm::vec2 playerPos = glm::vec2(this->width / 2.0f - PLAYER_SIZE.x / 2, this->height - PLAYER_SIZE.y);
+	glm::vec2 ballPos = playerPos + glm::vec2(PLAYER_SIZE.x / 2.0f - BALL_RADIUS, -BALL_RADIUS * 2.0f);
+
 	player = new GameObject(playerPos, PLAYER_SIZE, ResourcesProvider::GetTexture("paddle"));
+	ball = new Ball(ballPos, BALL_RADIUS, INITAIL_BALL_VELOCITY, ResourcesProvider::GetTexture("ball"));
 }
 
 void Game::Update(float dt)
 {
-
+	ball->Move(dt, this->width);
+	this->DoCollisions();
 }
 
 void Game::ProcessInput(float dt)
@@ -70,6 +78,10 @@ void Game::ProcessInput(float dt)
 			if (player->position.x >= 0.0f)
 			{
 				player->position.x -= velocity;
+				if (ball->isStuck)
+				{
+					ball->position.x -= velocity;
+				}
 			}
 		}
 		if (this->keys[GLFW_KEY_D])
@@ -77,7 +89,15 @@ void Game::ProcessInput(float dt)
 			if (player->position.x <= this->width - player->size.x)
 			{
 				player->position.x += velocity;
+				if (ball->isStuck)
+				{
+					ball->position.x += velocity;
+				}
 			}
+		}
+		if (this->keys[GLFW_KEY_SPACE])
+		{
+			ball->isStuck = false;
 		}
 	}
 }
@@ -91,5 +111,32 @@ void Game::Render()
 		this->levels[this->level].Draw(*renderer);
 
 		player->Draw(*renderer);
+
+		ball->Draw(*renderer);
+	}
+}
+
+bool Game::CheckCollision(GameObject& first, GameObject& second)
+{
+	bool CollisionX = (first.position.x + first.size.x >= second.position.x) && (second.position.x + second.size.x >= first.position.x);
+	bool CollisionY = (first.position.y + first.size.y >= second.position.y) && (second.position.y + second.size.y >= first.position.y);
+
+	return CollisionX && CollisionY;
+}
+
+void Game::DoCollisions()
+{
+	for (GameObject& box : this->levels[this->level].bricks)
+	{
+		if (!box.isDestroyed)
+		{
+			if (CheckCollision(*ball, box))
+			{
+				if (!box.isSolid)
+				{
+					box.isDestroyed = true;
+				}
+			}
+		}
 	}
 }

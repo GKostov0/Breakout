@@ -4,6 +4,7 @@
 #include <GLFW\glfw3.h>
 
 #include "Core\GameLevel\GameLevel.h"
+#include "Game\Ball.h"
 
 enum GameState
 {
@@ -37,5 +38,5 @@ public:
 
 	void DoCollisions();
 private:
-	bool CheckCollision(GameObject& first, GameObject& second);
+	bool CheckCollision(Ball& ball, GameObject& other);
 };

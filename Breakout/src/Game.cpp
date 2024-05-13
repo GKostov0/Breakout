@@ -2,7 +2,6 @@
 
 #include "Core\ResourcesProvider\ResourcesProvider.h"
 #include "Core\SpriteRenderer\SpriteRenderer.h"
-#include "Game\Ball.h"
 
 SpriteRenderer* renderer;
 GameObject* player;
@@ -116,12 +115,28 @@ void Game::Render()
 	}
 }
 
-bool Game::CheckCollision(GameObject& first, GameObject& second)
+bool Game::CheckCollision(Ball& ball, GameObject& other)
 {
-	bool CollisionX = (first.position.x + first.size.x >= second.position.x) && (second.position.x + second.size.x >= first.position.x);
-	bool CollisionY = (first.position.y + first.size.y >= second.position.y) && (second.position.y + second.size.y >= first.position.y);
+	glm::vec2 center(ball.position + ball.radius);
 
-	return CollisionX && CollisionY;
+	glm::vec2 aabb_half_extends(other.size.x / 2.0f, other.size.y / 2.0f);
+	glm::vec2 aabb_center(other.position.x + aabb_half_extends.x, other.position.y + aabb_half_extends.y);
+
+	glm::vec2 difference = center - aabb_center;
+	glm::vec2 clamped = glm::clamp(difference, -aabb_half_extends, aabb_half_extends);
+
+	glm::vec2 closest = aabb_center + clamped;
+
+	difference = closest - center;
+
+	// Boxy collision - simple...
+	//bool CollisionX = (ball.position.x + ball.size.x >= other.position.x) && (other.position.x + other.size.x >= ball.position.x);
+	//bool CollisionY = (ball.position.y + ball.size.y >= other.position.y) && (other.position.y + other.size.y >= ball.position.y);
+
+	//return CollisionX && CollisionY;
+
+	// Circular collision - not so simple...
+	return glm::length(difference) < ball.radius;
 }
 
 void Game::DoCollisions()

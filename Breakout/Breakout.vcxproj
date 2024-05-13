@@ -120,8 +120,16 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="src\Sprites\background.jpg" />
+    <Image Include="src\Sprites\ball.png" />
     <Image Include="src\Sprites\block.png" />
     <Image Include="src\Sprites\block_solid.png" />
+    <Image Include="src\Sprites\paddle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\levels\four.lvl" />
+    <None Include="src\levels\one.lvl" />
+    <None Include="src\levels\three.lvl" />
+    <None Include="src\levels\two.lvl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -32,6 +32,6 @@ public:
 	void Init();
 
 	void ProcessInput(float dt);
-	void Update();
+	void Update(float dt);
 	void Render();
 };
